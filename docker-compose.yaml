@@ -1,0 +1,71 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb
+    ports:
+      - '8086:8086'
+    environment:
+      - INFLUXDB_DB=test
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin
+    volumes:
+      - './data:/var/lib/influxdb'
+    networks:
+      - internal_nw
+      - external_nw
+  fluentd:
+    image: fluentd-influxdb
+    build: ./fluentd
+    depends_on:
+      - influxdb
+    ports:
+      - '24220:24220'
+      - '24224:24224'
+    volumes:
+      - './fluentd/fluent.conf:/fluentd/etc/fluent.conf'
+      - './logs/:/var/log/'
+    networks:
+      - internal_nw
+      - external_nw
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - internal_nw
+      - external_nw
+    links:
+      - fluentd
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: web.nginx
+
+  web:
+    build: ./flask
+    ports:
+      - "3000:3000"
+    networks:
+      - internal_nw
+    links:
+      - fluentd
+    depends_on:
+      - fluentd
+    logging:
+      driver: 'fluentd'
+      options:
+        fluentd-address: localhost:24224
+        tag: web.python
+
+
+
+networks:
+  internal_nw: #internal network without internet access
+    internal: true
+    driver: bridge
+  external_nw: #default network with internet access
