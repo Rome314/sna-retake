@@ -4,49 +4,48 @@ services:
     image: fluentd-influxdb
     build: ./fluentd
     links:
-      - influxdb
+      - influxdb #fluent can't start untill database is not started
     networks:
-      - external_network
-      - logging_stuff_network
+      - external_network #access to external network, need for docker engine to send there logs
+      - logging_stuff_network #access to database through network
     ports:
-      - '24224:24224'
-      - '5140:5140/tcp'
+      - '24224:24224' #logs listening default port
+      - '5140:5140/tcp' #ports that listen syslogs
       - '5140:5140/udp'
     volumes:
-      - './fluentd/configs/:/fluentd/etc/'
+      - './fluentd/configs/:/fluentd/etc/' #config file mounting
   influxdb:
     image: influxdb:1.7.4
     ports:
-      - '8086:8086'
+      - '8086:8086' #database's default port
     networks:
-      - logging_stuff_network
+      - logging_stuff_network #need to be accessable for fluent and chronograf
     env_file:
-      - influx/influx.env
+      - influx/influx.env #database configuration by environment variables
     volumes:
-      - './influx/internal:/var/lib/influxdb'
+      - './influx/internal:/var/lib/influxdb' #need to restore data in case of restart
   chronograf:
     image: chronograf:latest
     links:
-      - influxdb
+      - influxdb #chronograf can'n start without database
     networks:
-      - logging_stuff_network
-      - applications_network
+      - logging_stuff_network #for accessing influx
+      - applications_network #to be reachable by nginx
     env_file:
-      - chronograf/chronograf.env
-  
+      - chronograf/chronograf.env #configuration by environment variables
     ports:
-      - "8888:8888"
+      - "8888:8888" #default port, but it's not accessable from public network
   nginx:
     image: nginx:latest
     ports:
-      - "80:80"
+      - "80:80" #listening port, default for http
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf #config file mounting
     networks:
-      - applications_network
-      - external_network
+      - applications_network # for accessing to flask app and chronograf
+      - external_network # to be reachable from public network
     links:
-      - fluentd
+      - fluentd # do not start before fluent
     restart: unless-stopped
     logging:
       driver: 'fluentd'
@@ -59,8 +58,8 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - applications_network
-    links:
+      - applications_network # to be reachable by nginx
+    links: # can not start before nginx and fluent
       - nginx
       - fluentd
     restart: unless-stopped
@@ -71,6 +70,7 @@ services:
         fluentd-async-connect: 'true'
         fluentd-max-retries: '20'
 
+# networks describing
 networks:
   logging_stuff_network:
     internal: true
