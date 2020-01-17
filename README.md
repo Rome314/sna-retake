@@ -1,4 +1,4 @@
-# SNA_Retake project instrcution
+# SNA_Retake project instruction 
 ## Service description can be found [here](/docs/Description.pdf)
  ## How to run on your host
 ```bash
