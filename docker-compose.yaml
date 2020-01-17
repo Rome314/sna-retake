@@ -34,7 +34,7 @@ services:
     env_file:
       - chronograf/chronograf.env
     volumes:
-      - ./chronograf/dashboards:/usr/share/chronograf/canned
+      - ./chronograf/dashboards:/etc/chronograf/dashboards
     ports:
       - "8888:8888"
   nginx:
