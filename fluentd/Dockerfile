@@ -1,2 +1,2 @@
 FROM fluent/fluentd
-RUN ["gem", "install", "fluent-plugin-influxdb"]
+RUN gem install fluent-plugin-influxdb 

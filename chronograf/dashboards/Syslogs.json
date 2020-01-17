@@ -1,0 +1,456 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.16",
+		"sources": {
+			"0": {
+				"name": "http://influxdb:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 3,
+		"cells": [
+			{
+				"i": "60374fb4-1889-46a5-82ad-67625f630ee6",
+				"x": 0,
+				"y": 4,
+				"w": 12,
+				"h": 2,
+				"name": "User error logs",
+				"queries": [
+					{
+						"query": "SELECT \"pid\", \"message\", \"ident\", \"host\" FROM \"logs\".\"autogen\".\"system.user.err\" ",
+						"queryConfig": {
+							"database": "logs",
+							"measurement": "system.user.err",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "pid",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "message",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "ident",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "host",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "system.user.err.host",
+						"displayName": "host",
+						"visible": true
+					},
+					{
+						"internalName": "system.user.err.ident",
+						"displayName": "ident",
+						"visible": true
+					},
+					{
+						"internalName": "system.user.err.message",
+						"displayName": "message ",
+						"visible": true
+					},
+					{
+						"internalName": "system.user.err.pid",
+						"displayName": "pid",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Logs for this table are not yet loaded",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/cells/60374fb4-1889-46a5-82ad-67625f630ee6"
+				}
+			},
+			{
+				"i": "bac1b9ca-7cce-4d0f-9c59-b5fa40f30a22",
+				"x": 0,
+				"y": 2,
+				"w": 12,
+				"h": 2,
+				"name": "Kernel error logs",
+				"queries": [
+					{
+						"query": "SELECT \"pid\", \"message\", \"ident\", \"host\" FROM \"logs\".\"autogen\".\"system.kern.err\"",
+						"queryConfig": {
+							"database": "logs",
+							"measurement": "system.kern.err",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "pid",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "message",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "ident",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "host",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.err.host",
+						"displayName": "host",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.err.ident",
+						"displayName": "ident",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.err.message",
+						"displayName": "message",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.err.pid",
+						"displayName": "pid",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Logs for this table are not yet loaded",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/cells/bac1b9ca-7cce-4d0f-9c59-b5fa40f30a22"
+				}
+			},
+			{
+				"i": "ddfcb0c5-c9ac-487e-8017-324f6278de2c",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 2,
+				"name": "Kernel info logs",
+				"queries": [
+					{
+						"query": "SELECT \"pid\", \"message\", \"ident\", \"host\" FROM \"logs\".\"autogen\".\"system.kern.info\" ",
+						"queryConfig": {
+							"database": "logs",
+							"measurement": "system.kern.info",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "pid",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "message",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "ident",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "host",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.info.host",
+						"displayName": "host",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.info.ident",
+						"displayName": "ident",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.info.message",
+						"displayName": "message",
+						"visible": true
+					},
+					{
+						"internalName": "system.kern.info.pid",
+						"displayName": "pid",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Logs for this table are not yet loadet",
+				"noteVisibility": "showWhenNoData",
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/cells/ddfcb0c5-c9ac-487e-8017-324f6278de2c"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Syslogs",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/3",
+			"cells": "/chronograf/v1/dashboards/3/cells",
+			"templates": "/chronograf/v1/dashboards/3/templates"
+		}
+	}
+}
