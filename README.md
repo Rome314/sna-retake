@@ -15,7 +15,7 @@ http://<your-host>/test
 http://<your-host>/logs
 ```
 ## How to use created dashboards in Chronograf
-1. Open Chronograf ('http://<your-host>/logs')
+1. Open Chronograf (http://\<your-host\>/logs)
 2. Select "Dashboards" section
 3. Click on "Import Dashboards" button
 4. And select dashboards from sna-retake/chronograf/dashboard
@@ -25,7 +25,7 @@ http://<your-host>/logs
 - Syslogs
 
 ## How to view other logs, not shown in dashboards
-1. Open Chronograf ('http://<your-host>/logs')
+1. Open Chronograf ('http://\<your-host\>/logs')
 2. Select "Explore Data" section
 3. Tap to "Add query", if it's not already selected
 4. Choose database from "logs.autogen"
