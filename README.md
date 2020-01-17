@@ -1,5 +1,5 @@
 # SNA_Retake project instrcution
- ## How to run on our host
+ ## How to run on your host
 ```bash
 sudo su
 git clone https://github.com/Rome314/sna-retake.git
