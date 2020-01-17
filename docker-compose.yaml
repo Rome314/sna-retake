@@ -33,8 +33,7 @@ services:
       - applications_network
     env_file:
       - chronograf/chronograf.env
-    volumes:
-      - ./chronograf/dashboards:/etc/chronograf/dashboards
+  
     ports:
       - "8888:8888"
   nginx:

@@ -9,10 +9,10 @@
 		}
 	},
 	"dashboard": {
-		"id": 3,
+		"id": 2,
 		"cells": [
 			{
-				"i": "60374fb4-1889-46a5-82ad-67625f630ee6",
+				"i": "a045848d-48e1-4181-a1db-ce4b530bdb85",
 				"x": 0,
 				"y": 4,
 				"w": 12,
@@ -152,11 +152,11 @@
 				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/3/cells/60374fb4-1889-46a5-82ad-67625f630ee6"
+					"self": "/chronograf/v1/dashboards/2/cells/a045848d-48e1-4181-a1db-ce4b530bdb85"
 				}
 			},
 			{
-				"i": "bac1b9ca-7cce-4d0f-9c59-b5fa40f30a22",
+				"i": "9ea61626-876e-47e5-86bd-95f0e2ab4e07",
 				"x": 0,
 				"y": 2,
 				"w": 12,
@@ -296,11 +296,11 @@
 				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/3/cells/bac1b9ca-7cce-4d0f-9c59-b5fa40f30a22"
+					"self": "/chronograf/v1/dashboards/2/cells/9ea61626-876e-47e5-86bd-95f0e2ab4e07"
 				}
 			},
 			{
-				"i": "ddfcb0c5-c9ac-487e-8017-324f6278de2c",
+				"i": "8f300c9b-836d-4107-b77f-c3deb34e22af",
 				"x": 0,
 				"y": 0,
 				"w": 12,
@@ -440,7 +440,151 @@
 				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
-					"self": "/chronograf/v1/dashboards/3/cells/ddfcb0c5-c9ac-487e-8017-324f6278de2c"
+					"self": "/chronograf/v1/dashboards/2/cells/8f300c9b-836d-4107-b77f-c3deb34e22af"
+				}
+			},
+			{
+				"i": "e172b5ee-6559-459c-82d1-73b00761c289",
+				"x": 0,
+				"y": 6,
+				"w": 12,
+				"h": 2,
+				"name": "Daemons info",
+				"queries": [
+					{
+						"query": "SELECT \"message\", \"ident\", \"host\", \"pid\" FROM \"logs\".\"autogen\".\"system.daemon.info\" ",
+						"queryConfig": {
+							"database": "logs",
+							"measurement": "system.daemon.info",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "message",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "ident",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "host",
+									"type": "field",
+									"alias": ""
+								},
+								{
+									"value": "pid",
+									"type": "field",
+									"alias": ""
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "table",
+				"colors": [
+					{
+						"id": "base",
+						"type": "text",
+						"hex": "#00C9FF",
+						"name": "laser",
+						"value": "-1000000000000000000"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					{
+						"internalName": "system.daemon.info.host",
+						"displayName": "host",
+						"visible": true
+					},
+					{
+						"internalName": "system.daemon.info.ident",
+						"displayName": "ident",
+						"visible": true
+					},
+					{
+						"internalName": "system.daemon.info.message",
+						"displayName": "message",
+						"visible": true
+					},
+					{
+						"internalName": "system.daemon.info.pid",
+						"displayName": "pid",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "Nothing to show yet",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/2/cells/e172b5ee-6559-459c-82d1-73b00761c289"
 				}
 			}
 		],
@@ -448,9 +592,9 @@
 		"name": "Syslogs",
 		"organization": "default",
 		"links": {
-			"self": "/chronograf/v1/dashboards/3",
-			"cells": "/chronograf/v1/dashboards/3/cells",
-			"templates": "/chronograf/v1/dashboards/3/templates"
+			"self": "/chronograf/v1/dashboards/2",
+			"cells": "/chronograf/v1/dashboards/2/cells",
+			"templates": "/chronograf/v1/dashboards/2/templates"
 		}
 	}
 }
