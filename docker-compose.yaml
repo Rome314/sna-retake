@@ -54,7 +54,7 @@ services:
         fluentd-async-connect: 'true'
         fluentd-max-retries: '20'
   web:
-    build: ./flask
+    image: rome314/sna-retake-flask:latest
     ports:
       - "3000:3000"
     networks:
