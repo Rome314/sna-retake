@@ -1,21 +1,10 @@
-version: '3.7'
+version: '3.3'
 services:
-  rsyslog:
-    image: vimagick/rsyslog
-    ports:
-      - "514:514/tcp"
-      - "514:514/udp"
-    networks:
-      - external_network
-    volumes:
-      - ./rsyslog/rsyslog.conf:/etc/rsyslog.conf
-    restart: unless-stopped
   fluentd:
     image: fluentd-influxdb
     build: ./fluentd
     links:
       - influxdb
-      - rsyslog
     networks:
       - external_network
       - logging_stuff_network

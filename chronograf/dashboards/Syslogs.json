@@ -149,7 +149,7 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "Logs for this table are not yet loaded",
+				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
 					"self": "/chronograf/v1/dashboards/3/cells/60374fb4-1889-46a5-82ad-67625f630ee6"
@@ -293,7 +293,7 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "Logs for this table are not yet loaded",
+				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
 					"self": "/chronograf/v1/dashboards/3/cells/bac1b9ca-7cce-4d0f-9c59-b5fa40f30a22"
@@ -437,7 +437,7 @@
 					"isEnforced": true,
 					"digits": 2
 				},
-				"note": "Logs for this table are not yet loadet",
+				"note": "Nothing to show",
 				"noteVisibility": "showWhenNoData",
 				"links": {
 					"self": "/chronograf/v1/dashboards/3/cells/ddfcb0c5-c9ac-487e-8017-324f6278de2c"
